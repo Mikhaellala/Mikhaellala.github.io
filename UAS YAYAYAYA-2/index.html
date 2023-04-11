@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>THE DAILY</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/global.css"></link>
+    <script src="assets/data.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="menubar">
+             <div class="kotakan">
+             <div class="menu" onclick="location.href='index.html'">HOME</div>
+             <div class="menu" onclick="location.href='shop.html'">THE SHOP</div>
+             <div class="menu" onclick="location.href='news.html'">NEWS</div>
+             <div class="menu" onclick="location.href='four.html'">ABOUT US</div>
+             <div class="menu" onclick="location.href='info.html'">INFO</div>
+           </div>
+           </div>
+         </nav>
+
+         <div class="latest">
+          <h1>Latest News on The Daily</h1>
+    <div id="categoryResults"></div>
+  </body>
+</html>
+<script>
+  
+  var categorynya = '';
+  for (var r=0; r < 5; r++) {
+    categorynya = categorynya  + '<div class="category"><img src="assets/img/' + categories[r].foto + '" /><h3>' + categories[r].headline +
+      '<span class="statuscategory">' + categories[r].tanggal + 
+        '</span></h3><h4>' + categories[r].author +
+        '</h5></div>';
+  }
+  document.getElementById('categoryResults').innerHTML = categorynya;
+</script>

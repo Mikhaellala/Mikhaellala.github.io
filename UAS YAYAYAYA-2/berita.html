@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NEWS</title>
+    <script src="assets/data.js"></script>
+    <style>
+         * {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+    }
+        nav {
+    width: 100vw;
+    height: 20px;
+   }
+    div.menubar{
+      position: fixed;
+      width: 100vw;
+      
+    }
+
+    nav .menubar .menu {
+      position: relative;
+      width: 90px;
+      height: 15px;
+      padding: 25px;
+      font-weight: bold;
+      float: left;
+      color: rgb(255, 255, 255);       
+      cursor: pointer;
+      background-color: black;
+      transition: background-color 0.5s;
+      font-family: Arial, Helvetica, sans-serif; 
+      text-align: center;
+      margin-bottom: 5pt;
+    }
+  
+   
+    nav .menubar .menu:hover {
+      background-color: rgb(0, 0, 0);
+      color: rgb(255, 132, 0);
+      height: 15px;
+      font-weight: bolder;
+    }
+    header {
+      background-image: url("assets/img/rainforest.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 400px;
+    }
+
+    .category {
+        width: 140pt;
+        height: 250pt;
+        padding: 20px;
+     
+        float: left;
+        margin: 5pt;
+        margin-top: 15pt;
+      }
+
+
+    .kecilan {
+        width: 25%;
+        height: 100pt;
+        padding: 20px;
+        float: left;
+        margin: 5pt;
+        margin-top: 35pt;
+        padding-left: 35pt;
+      }
+
+      .kotaknya {
+        width: 100%;
+        padding-top: 25pt;
+        left : 15pt;
+      }
+      .category img {
+        width: fit-content;
+        height: 100pt;
+      }
+      .kecilan img {
+        width: 150pt;
+        height: 100pt;
+      }
+
+      .category h4 {
+        margin-top: 10px;
+        color: white;
+        font-size: 12pt;
+      }
+      
+      .kecilan h4 {
+        margin-top: 10px;
+        color: white;
+        font-size: 12pt;
+      }
+      .category h5 {
+        font-size: 7pt;
+        margin-top: 5px;
+        color:darkgray;
+      }
+      .kecilan h5 {
+        font-size: 7pt;
+        margin-top: 5px;
+        color:darkgray;
+      }
+      .category h6 {
+        font-size: 10pt;
+        text-transform: uppercase;
+        margin-top: 5px;
+        color:rgb(255, 98, 0);
+      }
+
+      .kecilan h6 {
+        font-size: 10pt;
+        text-transform: uppercase;
+        margin-top: 5px;
+        color:rgb(255, 98, 0);
+      }
+
+      div.newest h1 {
+        color: white;
+        font-size: 20pt;
+        font-weight: medium;
+      }
+
+      div.newest {
+        width: auto;
+        left: 10pt;
+        margin-top: 30pt;
+      }
+
+      nav.filtering {
+    width: 100vw;
+    height: 20px;
+   }
+    div.kategori{
+      position: relative;
+      width: 100vw;
+      left: 19%;
+    }
+
+    nav.filtering .kategori .genre {
+      position: relative;
+      width: 120px;
+      height: 15px;
+      padding: 25px;
+      font-weight: lighter;
+      float: left;
+      color: rgb(255, 255, 255);       
+      cursor: pointer;
+      background-color: black;
+      transition: background-color 0.5s;
+      font-family: Arial, Helvetica, sans-serif; 
+      text-align: center;
+      margin-bottom: 5pt;
+      text-align: center;
+    }
+  
+   
+    nav.filtering .kategori .genre:hover {
+      background-color: rgb(0, 0, 0);
+      color: rgb(255, 132, 0);
+      height: 15px;
+      font-weight: medium;
+      text-decoration: underline;
+    }
+
+    .isipol {
+        width: 80%;
+      
+    }       
+    
+    </style>
+    
+    <body>
+        <nav>
+            <div class="menubar">
+                   <div class="kotakan">
+                   <div class="menu" onclick="location.href='index.html'">HOME</div>
+                   <div class="menu" onclick="location.href='shop.html'">THE SHOP</div>
+                   <div class="menu" onclick="location.href='news.html'">NEWS</div>
+                   <div class="menu" onclick="location.href='four.html'">ABOUT US</div>
+                   <div class="menu" onclick="location.href='info.html'">INFO</div>
+                 </div>
+                 </div>
+               </nav>
+               <header></header>
+               <div class="newest">
+                <h1> &emsp;LATEST UPDATE</h1>
+               <div id="hasilberita"></div></div></div>
+
+               <nav class="filtering">
+                <div class="kategori">
+                       <div class="genres">
+                       <div class="genre" onclick="location.href='index.html'">POLITIK</div>
+                       <div class="genre" onclick="location.href='shop.html'">ENTERTAINMENT</div>
+                       <div class="genre" onclick="location.href='news.html'">SPORTS</div>
+                       <div class="genre" onclick="location.href='four.html'">GLOBAL</div>
+                     </div>
+                     </div>
+                   </nav>
+                   <div class="isipol">
+                   <div id="politik"></div></div>
+
+    </body>
+
+    <script>
+
+
+
+
+  var baru = '';
+  for (var r=0; r <5; r++) {
+    baru = baru + '<div class="category"><img src="assets/img/' + categories[r].foto + '" /><h4>' + categories[r].headline + '</h4><h6>' + categories[r].author + '</h6><h5>' +categories[r].tanggal + '</h5></div>';
+  }
+  document.getElementById('hasilberita').innerHTML = baru;
+
+  var poli = '';
+  for (var r=0; r < categories.length; r++) {
+    poli = poli + '<div class="kecilan"><img src="assets/img/' + categories[r].foto + '" /><h4>' + categories[r].headline + '</h4><h6>' + categories[r].author + '</h6><h5>' +categories[r].tanggal + '</h5></div>';
+  }
+  document.getElementById('politik').innerHTML = poli;
+
+
+
+    </script>
